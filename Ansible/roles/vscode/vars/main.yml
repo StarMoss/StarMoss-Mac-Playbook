@@ -1,0 +1,16 @@
+---
+vscode_extensions:
+  - ms-python.python
+  - ms-azuretools.vscode-docker
+  - hashicorp.terraform
+  - esbenp.prettier-vscode
+  - eamodio.gitlens
+
+vscode_settings:
+  editor.fontSize: 14
+  editor.tabSize: 2
+  files.trimTrailingWhitespace: true
+  terminal.integrated.shell.osx: "/bin/zsh"
+  workbench.colorTheme: "Default Dark+"
+  window.zoomLevel: 0
+  editor.formatOnSave: true

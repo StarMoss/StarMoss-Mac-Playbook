@@ -1,0 +1,66 @@
+# This file is automatically loaded for every host (in this case, your local Mac) 
+# and has a higher precedence than the vars inside each role’s vars/main.yml file.
+
+# So if a variable exists both in roles/git/vars/main.yml and group_vars/all.yml, 
+# the one in group_vars/all.yml will override it.
+
+---
+# Global overrides and preferences for all roles
+
+# ---- Personal Info ----
+git_user_name: "Your Name"
+git_user_email: "your.email@example.com"
+
+# ---- Brew Packages ----
+homebrew_packages:
+  - git
+  - python
+  - node
+  - wget
+  - jq
+  - terraform
+  - kubectl
+  - awscli
+  - gh
+  - tree
+
+cask_packages:
+  - visual-studio-code
+  - iterm2
+  - slack
+  - docker
+  - spotify
+  - rectangle
+
+# ---- VS Code ----
+vscode_extensions:
+  - ms-python.python
+  - ms-azuretools.vscode-docker
+  - hashicorp.terraform
+  - esbenp.prettier-vscode
+  - eamodio.gitlens
+  - github.copilot
+
+vscode_settings:
+  editor.fontSize: 14
+  editor.tabSize: 2
+  editor.rulers: [80, 100]
+  files.trimTrailingWhitespace: true
+  workbench.colorTheme: "Default Dark+"
+  terminal.integrated.shell.osx: "/bin/zsh"
+  window.zoomLevel: 0
+  editor.formatOnSave: true
+
+# ---- macOS Preferences ----
+macos_settings:
+  - { domain: NSGlobalDomain, key: AppleShowAllExtensions, value: "true", type: bool }
+  - { domain: NSGlobalDomain, key: KeyRepeat, value: "1", type: int }
+  - { domain: NSGlobalDomain, key: InitialKeyRepeat, value: "15", type: int }
+  - { domain: com.apple.screencapture, key: location, value: "~/Pictures/Screenshots", type: string }
+  - { domain: -g, key: ApplePressAndHoldEnabled, value: "false", type: bool }
+
+# ---- Shell ----
+custom_paths:
+  - "/opt/homebrew/bin"
+  - "{{ ansible_env.HOME }}/bin"
+default_editor: "code"

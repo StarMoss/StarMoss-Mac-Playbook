@@ -1,0 +1,26 @@
+# Ansible retry files
+*.retry
+
+# Ansible vault password files (protect your secrets!)
+*.vault_pass
+.vault_pass.txt
+
+# Local Ansible collections
+ansible_collections/
+
+# Python artifacts
+*.pyc
+__pycache__/
+venv/
+.env/
+
+# Ansible-navigator and logs
+ansible-navigator.log
+*.log
+
+# Ignore MacOS system files
+**/.DS_Store
+.DS_Store
+*.swp
+.vault_pass
+group_vars/local.yml

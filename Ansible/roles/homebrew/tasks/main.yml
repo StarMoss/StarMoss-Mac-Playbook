@@ -1,0 +1,16 @@
+---
+- name: Ensure Homebrew is installed
+  ansible.builtin.shell: |
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  args:
+    creates: /opt/homebrew/bin/brew
+
+- name: Install Homebrew packages
+  community.general.homebrew:
+    name: "{{ homebrew_packages }}"
+    state: present
+
+- name: Install Homebrew casks
+  community.general.homebrew_cask:
+    name: "{{ cask_packages }}"
+    state: present

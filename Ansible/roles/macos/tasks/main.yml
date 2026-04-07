@@ -1,0 +1,34 @@
+# ---
+# - name: Apply macOS system defaults
+#   ansible.builtin.command: >
+#     defaults write {{ item.domain }} {{ item.key }}
+#     {{ '-bool' if item.type == 'bool' else ('-int' if item.type == 'int' else '') }}
+#     {{ item.value }}
+#   loop: "{{ macos_settings }}"
+
+# - name: Restart Finder to apply changes
+#   ansible.builtin.command: killall Finder || true
+
+
+
+
+---
+# Example macOS system tweaks
+
+- name: Show all filename extensions
+  ansible.builtin.command: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+- name: Set fast key repeat rate
+  ansible.builtin.command: defaults write NSGlobalDomain KeyRepeat -int 1
+
+- name: Set short delay until key repeat
+  ansible.builtin.command: defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+- name: Save screenshots to ~/Pictures/Screenshots
+  ansible.builtin.command: defaults write com.apple.screencapture location ~/Pictures/Screenshots
+
+- name: Disable press-and-hold for keys (enable key repeat)
+  ansible.builtin.command: defaults write -g ApplePressAndHoldEnabled -bool false
+
+- name: Restart Finder to apply settings
+  ansible.builtin.command: killall Finder || true
