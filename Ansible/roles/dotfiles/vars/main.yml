@@ -1,0 +1,15 @@
+---
+profile_path: "{{ ansible_env.HOME }}/.profile"
+custom_paths:
+  - "/opt/homebrew/bin"
+  - "{{ ansible_env.HOME }}/bin"
+default_editor: "code"
+
+git_user_name: "Your Name"
+git_user_email: "your@email.com"
+global_gitignore_content: |
+  .DS_Store
+  .idea/
+  *.log
+  node_modules/
+  __pycache__/

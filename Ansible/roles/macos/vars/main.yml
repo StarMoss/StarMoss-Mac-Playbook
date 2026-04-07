@@ -1,0 +1,7 @@
+# ---
+# macos_settings:
+#   - { domain: NSGlobalDomain, key: AppleShowAllExtensions, value: "true", type: bool }
+#   - { domain: NSGlobalDomain, key: KeyRepeat, value: "1", type: int }
+#   - { domain: NSGlobalDomain, key: InitialKeyRepeat, value: "15", type: int }
+#   - { domain: com.apple.screencapture, key: location, value: "~/Pictures/Screenshots", type: string }
+#   - { domain: -g, key: ApplePressAndHoldEnabled, value: "false", type: bool }

@@ -1,0 +1,16 @@
+# Zsh configuration
+if [ -f ~/.profile ]; then
+  source ~/.profile
+fi
+
+# Prompt customization
+autoload -U colors && colors
+PROMPT='%F{green}%n@%m%f %F{blue}%1~%f %# '
+
+# Enable command auto-correction
+setopt CORRECT
+
+# Aliases
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+fi

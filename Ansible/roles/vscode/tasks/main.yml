@@ -1,0 +1,42 @@
+---
+- name: Install VS Code extensions
+  ansible.builtin.shell: |
+{% for ext in vscode_extensions %}
+    code --install-extension {{ ext }}
+{% endfor %}
+  args:
+    executable: /bin/zsh
+  ignore_errors: yes  # Skips if "code" command not yet linked
+
+- name: Configure VS Code settings
+  ansible.builtin.copy:
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
+    content: "{{ vscode_settings | to_nice_json }}"
+
+
+
+# ---
+# - name: Install VS Code extensions
+#   ansible.builtin.shell: |
+#     code --install-extension ms-python.python
+#     code --install-extension ms-azuretools.vscode-docker
+#     code --install-extension hashicorp.terraform
+#     code --install-extension esbenp.prettier-vscode
+#     code --install-extension eamodio.gitlens
+#   args:
+#     executable: /bin/zsh
+#   ignore_errors: yes  # skips if code command not yet linked
+
+# - name: Configure VS Code settings
+#   ansible.builtin.copy:
+#     dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
+#     content: |
+#       {
+#           "editor.fontSize": 14,
+#           "editor.tabSize": 2,
+#           "files.trimTrailingWhitespace": true,
+#           "terminal.integrated.shell.osx": "/bin/zsh",
+#           "workbench.colorTheme": "Default Dark+",
+#           "window.zoomLevel": 0,
+#           "editor.formatOnSave": true
+#       }

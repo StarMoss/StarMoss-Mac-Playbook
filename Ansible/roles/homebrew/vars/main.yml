@@ -1,0 +1,17 @@
+---
+homebrew_packages:
+  - git
+  - python
+  - node
+  - wget
+  - jq
+  - terraform
+  - docker
+  - kubectl
+  - awscli
+
+cask_packages:
+  - visual-studio-code
+  - iterm2
+  - slack
+  - google-chrome

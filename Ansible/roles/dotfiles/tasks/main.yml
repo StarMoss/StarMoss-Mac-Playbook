@@ -1,0 +1,43 @@
+---
+- name: Deploy ~/.profile
+  ansible.builtin.copy:
+    src: profile
+    dest: "{{ profile_path }}"
+    mode: '0644'
+
+- name: Deploy ~/.zshrc
+  ansible.builtin.copy:
+    src: zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    mode: '0644'
+
+- name: Deploy ~/.aliases
+  ansible.builtin.copy:
+    src: aliases
+    dest: "{{ ansible_env.HOME }}/.aliases"
+    mode: '0644'
+
+- name: Ensure Git is installed
+  community.general.homebrew:
+    name: git
+    state: present
+
+- name: Create global gitignore
+  ansible.builtin.copy:
+    dest: "{{ ansible_env.HOME }}/.gitignore_global"
+    content: "{{ global_gitignore_content }}"
+
+- name: Create global gitconfig
+  ansible.builtin.copy:
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    content: |
+      [user]
+          name = {{ git_user_name }}
+          email = {{ git_user_email }}
+      [core]
+          editor = code --wait
+          excludesfile = ~/.gitignore_global
+      [color]
+          ui = auto
+      [pull]
+          rebase = false

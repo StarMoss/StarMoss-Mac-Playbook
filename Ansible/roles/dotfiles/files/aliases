@@ -1,0 +1,15 @@
+# Common shortcuts
+alias ll='ls -lah'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git pull'
+alias tf='terraform'
+alias k='kubectl'
+alias c='code .'
+alias reload='source ~/.zshrc'
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'

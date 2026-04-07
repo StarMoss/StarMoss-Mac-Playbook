@@ -1,0 +1,12 @@
+# Login shell initialization for bash and zsh.
+# This file is sourced by ~/.zshrc when using zsh.
+
+export EDITOR="code --wait"
+
+if [ -d "/opt/homebrew/bin" ] && [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+if [ -d "$HOME/bin" ] && [[ ":$PATH:" != *":$HOME/bin:"* ]]; then
+  export PATH="$HOME/bin:$PATH"
+fi
