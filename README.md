@@ -1,4 +1,4 @@
-# 💫 Ansible playbook for new MacBook
+# Ansible playbook for new MacBook
 
 **This Ansible playbook is for setting up new a MacBook Computer with my personal preferences 🤓. Setting up a new laptop sucks. Maybe this will make it a little less annoying. Hopefully, I'll do future-me a favor, and keep this updated.**
 
